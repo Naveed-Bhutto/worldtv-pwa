@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2196F3">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="World TV">
+    <meta name="description" content="Watch live TV channels from around the world with adaptive streaming quality">
+    <title>World TV - Live TV Streaming Worldwide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-content">
+            <i class="fas fa-tv header-icon"></i>
+            <h1>World TV</h1>
+            <button id="installBtn" class="install-btn" style="display: none;">
+                <i class="fas fa-download"></i> Install
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Categories Tab Bar -->
+        <div class="categories-container">
+            <div class="categories-wrapper" id="categoriesWrapper">
+                <!-- Categories will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Channels Grid -->
+        <div class="channels-container">
+            <div class="channels-grid" id="channelsGrid">
+                <!-- Channels will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading channels...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <i class="fas fa-wifi"></i>
+            <p>Connection error. Please check your internet connection.</p>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+    </main>
+
+    <!-- Player Modal -->
+    <div id="playerModal" class="player-modal">
+        <div class="modal-content">
+            <div class="player-header">
+                <h3 id="playerChannelName"></h3>
+                <button class="close-btn" onclick="closePlayer()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-container">
+                <video id="videoPlayer" controls autoplay playsinline></video>
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="buffering-indicator" id="bufferingIndicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Buffering...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quality-selector">
+                <label><i class="fas fa-hd"></i> Quality:</label>
+                <select id="qualitySelect">
+                    <option value="auto">Auto (Adaptive)</option>
+                    <option value="high">High (720p+)</option>
+                    <option value="medium">Medium (480p)</option>
+                    <option value="low">Low (360p)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Offline Notification -->
+    <div id="offlineNotification" class="offline-notification" style="display: none;">
+        <i class="fas fa-plug"></i>
+        <span>You're offline. Some features may be limited.</span>
+    </div>
+
+    <script src="js/channels.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
