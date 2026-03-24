@@ -1,0 +1,27 @@
+{
+  "name": "worldtv-pwa",
+  "version": "1.0.0",
+  "description": "Live TV Streaming PWA for worldwide channels with adaptive quality",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx http-server -p 3000 -o",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [
+    "pwa",
+    "tv-streaming",
+    "live-tv",
+    "adaptive-streaming",
+    "mobile-app"
+  ],
+  "author": "World TV",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
